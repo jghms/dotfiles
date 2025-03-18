@@ -15,4 +15,4 @@ vim.keymap.set('n', ';', ':')
 vim.keymap.set('n', ':', ';')
 
 -- reload the neovim config
-vim.keymap.set('n', '<leader>vv', ':so ~/.config/nvim/init.lua')
+vim.keymap.set('n', '<leader>vv', ':so ~/.config/nvim/init.lua<cr>')
