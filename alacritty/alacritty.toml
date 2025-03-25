@@ -4,5 +4,14 @@ import = [
 ]
 
 [font]
-normal={family = "Hack Nerd Font Mono", style="Regular"}
-size=13
+normal={family = "JetBrainsMono Nerd Font Mono", style="Regular"}
+size=14
+
+[keyboard]
+bindings = [
+  { key = "Right", mods = "Alt", chars = "\u001BF" },
+  { key = "Left",  mods = "Alt", chars = "\u001BB" },
+]
+
+[window]
+padding	= { x = 10, y = 10 }
