@@ -20,3 +20,9 @@ vim.keymap.set('n', '<leader>vv', ':so ~/.config/nvim/init.lua<cr>')
 -- toggle neotree with control + b 
 vim.keymap.set('n', '<C-b>', ':Neotree toggle<CR>')
 
+-- quicklist navigation
+vim.keymap.set('n', '<leader>q', ':copen<CR>')
+vim.keymap.set('n', '<leader>Q', ':cclose<CR>')
+vim.keymap.set('n', '<leader>n', ':cnext<CR>')
+vim.keymap.set('n', '<leader>p', ':cprev<CR>')
+
