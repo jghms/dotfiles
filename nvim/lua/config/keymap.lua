@@ -16,3 +16,7 @@ vim.keymap.set('n', ':', ';')
 
 -- reload the neovim config
 vim.keymap.set('n', '<leader>vv', ':so ~/.config/nvim/init.lua<cr>')
+
+-- toggle neotree with control + b 
+vim.keymap.set('n', '<C-b>', ':Neotree toggle<CR>')
+
