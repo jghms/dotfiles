@@ -59,6 +59,11 @@ return { {
 			}
 		})
 
+		lspconfig.tsp_server.setup({
+			on_attach = on_attach,
+			capabilities = require('cmp_nvim_lsp').default_capabilities(),
+		})
+
 		lspconfig.sqls.setup {
 			on_attach = on_attach,
 			capabilities = require('cmp_nvim_lsp').default_capabilities(),
