@@ -1,3 +1,5 @@
+local format_buf = require("config.format")
+
 local on_attach = function(client, bufnr)
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 
@@ -23,9 +25,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
 
 	-- Formatting
-	vim.keymap.set("n", "<leader>f", function()
-		vim.lsp.buf.format { async = true }
-	end, opts)
+	vim.keymap.set("n", "<leader>f", format_buf, opts)
 end
 
 return { {
@@ -65,9 +65,24 @@ return { {
 		})
 
 		lspconfig.sqls.setup {
+			on_attach = function (client, bufnr)
+				on_attach(client, bufnr)
+				client.server_capabilities.document_formatting = false
+				client.server_capabilities.document_range_formatting = false
+			end,
+			capabilities = require('cmp_nvim_lsp').default_capabilities(),
+		}
+
+		lspconfig.elixirls.setup{
+			cmd = { "/opt/homebrew/bin/elixir-ls" },
 			on_attach = on_attach,
 			capabilities = require('cmp_nvim_lsp').default_capabilities(),
 		}
+
+		lspconfig.gleam.setup({
+			on_attach = on_attach,
+			capabilities = require('cmp_nvim_lsp').default_capabilities(),
+		})
 
 		lspconfig.gopls.setup({
 			on_attach = on_attach,
