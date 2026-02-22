@@ -95,6 +95,13 @@ return { {
 		lspconfig.ts_ls.setup({
 			on_attach = on_attach,
 			capabilities = require('cmp_nvim_lsp').default_capabilities(),
+			root_markers = { "package.json" },
+			single_file_support = false,
+		})
+		lspconfig.denols.setup({
+			on_attach = on_attach,
+			capabilities = require('cmp_nvim_lsp').default_capabilities(),
+			root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 		})
 		lspconfig.rust_analyzer.setup({
 			on_attach = on_attach,
